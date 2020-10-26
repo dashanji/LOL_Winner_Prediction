@@ -10,7 +10,7 @@
 
 1. Towers（防御塔）：每支队伍总共有11座防御塔
 2. Inhibitor（水晶）：每条道有一个水晶
-3. Elemental Drakes/Elder Dragon（大龙/远古龙）
+3. Elemental Drakes/Elder Dragon（小龙/远古龙）
 4. Rift Herald（峡谷先锋）
 5. Baron Nasho（纳什男爵）
 6. Nexus（基地）
@@ -26,9 +26,9 @@
 - Game Duration (in seconds)：游戏持续时间（秒）
 - Season ID：赛季ID
 - Winner (1=team1, 2=team2)：获胜队伍
-- First Baron, dragon, tower, blood, inhibitor and Rift Herald (1 = team1, 2 = team2, 0 = none)：第一条纳什男爵，大龙，塔，一血，水晶，峡谷先锋
+- First Baron, dragon, tower, blood, inhibitor and Rift Herald (1 = team1, 2 = team2, 0 = none)：第一条纳什大龙，小龙，塔，一血，水晶，峡谷先锋
 - Champions and summoner spells for each team (Stored as Riot's champion and summoner spell IDs)：每只队伍选择的英雄和召唤术
-- The number of tower, inhibitor, Baron, dragon and Rift Herald kills each team has：塔，水晶，男爵，大龙和峡谷先锋击杀数
+- The number of tower, inhibitor, Baron, dragon and Rift Herald kills each team has：塔，水晶，大龙，小龙和峡谷先锋击杀数
 - The 5 bans of each team (Again, champion IDs are used)：每个队伍的禁用英雄
 
 ## 数据读入和预处理
@@ -827,7 +827,7 @@ plot_bar_horizontal(input_col='firstInhibitor', target_col='winner', title_name=
 
 结论：在比赛中拿到第一座水晶塔的队伍91%的情况下可以获胜，这一点在某种程度上是可以预见的，因为首先摧毁水晶塔代表队伍已经积累的足够的优势，而且水晶塔力量很强大，并且更具有价值。
 
-### 击杀第一条男爵对获胜影响
+### 击杀第一条大龙对获胜影响
 
 
 ```python
@@ -888,12 +888,12 @@ pd.crosstab(df['firstBaron'], df['winner'])
 
 
 ```python
-plot_bar_horizontal(input_col='firstBaron', target_col='winner', title_name='击杀第一条男爵对获胜影响')  
+plot_bar_horizontal(input_col='firstBaron', target_col='winner', title_name='击杀第一条大龙对获胜影响')  
 ```
 
-结论：统计数据显示，在比赛中击杀第一条男爵有80%的胜率。
+结论：统计数据显示，在比赛中击杀第一条大龙有80%的胜率。
 
-### 击杀第一条大龙对获胜的影响
+### 击杀第一条小龙对获胜的影响
 
 
 ```python
@@ -957,7 +957,7 @@ pd.crosstab(df['firstDragon'], df['winner'])
 plot_bar_horizontal(input_col='firstDragon', target_col='winner', title_name='击杀第一条大龙对获胜的影响') 
 ```
 
-结论：在第一个队伍中，首先击杀第一条大龙的队伍胜率在68.6%，相较未取得优先的比赛胜率高36%。
+结论：在第一个队伍中，首先击杀第一条小龙的队伍胜率在68.6%，相较未取得优先的比赛胜率高36%。
 
 ### 击杀第一条峡谷先锋对获胜的影响
 
@@ -1091,7 +1091,7 @@ plot_bar_vertical(input_col='t1_inhibitorKills', target_col='winner', title_name
 
 结论：摧毁水晶的数目越多，获胜的概率越大。没有摧毁水晶的获胜概率为12.55%，摧毁一个的获胜概率为81.11%，两个为92.38%。
 
-### 击杀男爵数对获胜影响
+### 击杀大龙数对获胜影响
 
 
 ```python
@@ -1113,10 +1113,10 @@ df.t1_baronKills.value_counts()
 
 
 ```python
-plot_bar_vertical(input_col='t1_baronKills', target_col='winner', title_name='击杀男爵数对获胜影响')  
+plot_bar_vertical(input_col='t1_baronKills', target_col='winner', title_name='击杀大龙数对获胜影响')  
 ```
 
-结论：击杀男爵数越多，获胜的概率越大，击杀5条男爵的数据仅有一条，后续需要删除。
+结论：击杀大龙数越多，获胜的概率越大，击杀5条大龙的数据仅有一条，后续需要删除。
 
 ### 击杀大龙数对获胜影响
 
@@ -1531,9 +1531,9 @@ graph
 
 我们假设:
 
-第一队拿了第一血，第一塔，第一男爵，第一条大龙和第一峡谷先锋，而第二队只拿了第一个水晶。
+第一队拿了第一血，第一塔，第一大龙，第一条大龙和第一峡谷先锋，而第二队只拿了第一个水晶。
 
-第一队的塔，水晶，男爵和龙杀死的数量分别是10,2,1,4和塔，水晶，男爵和龙的数量分别是7,2,1,1。
+第一队的塔，水晶，大龙和龙杀死的数量分别是10,2,1,4和塔，水晶，大龙和龙的数量分别是7,2,1,1。
 
 
 ```python
