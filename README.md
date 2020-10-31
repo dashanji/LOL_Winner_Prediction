@@ -1607,3 +1607,13 @@ print("SN win probability is % ", list(c[0] * 100),
 
 ![image-20201026173550207](英雄联盟比分预测.assets/image-20201026173550207.png)
 
+## SN VS DWG预测
+
+![image-20201031103806950](README.assets/image-20201031103806950.png)
+
+大概率DWG会赢，但LPL就是一个创造奇迹的赛区，SN冲！
+
+![image-20201031104024995](README.assets/image-20201031104024995.png)
+
+![image-20201031104053622](README.assets/image-20201031104053622.png)
+

@@ -567,3 +567,54 @@ c = best_clf.predict_proba(new_data4).reshape(-1, 1)
 print("-----------The Fourth of SN VS TOP ----------- \n")
 print("SN win probability is % ", list(c[0] * 100),
       "\nTOP win probability is %:", list(c[1] * 100),"\nThe Real Winner is SN")
+
+#预测2020.10.31 SN VS DWG
+#本人直觉会打4盘
+#第一盘:
+#   一血      一塔     水晶    第一条大龙  第一条小龙  第一个峡谷先锋
+#  1(SN)    1(DWG)   1(DWG)    1(SN)      2(DWG)     1(SN)
+# SN推塔数量 推水晶数量 大龙数量 小龙数量
+#     3         0       1       3
+# DWG推塔数量 推水晶数量 大龙数量 小龙数量
+#     6         1       1       2
+pre1 = [[1, 1, 1, 1, 2, 1, 3, 0, 1, 3, 6, 1, 1, 2]]
+c = best_clf.predict_proba(pre1).reshape(-1, 1)
+print("-----------The First of SN VS DWG ----------- \n")
+print("SN win probability is % ", list(c[0] * 100),
+      "\nDWG win probability is %:", list(c[1] * 100))
+#第二盘:
+#   一血      一塔     水晶    第一条大龙  第一条小龙  第一个峡谷先锋
+#  2(DWG)    2(DWG)   1(SN)    1(SN)      1(SN)     2(DWG)
+# SN推塔数量 推水晶数量 大龙数量 小龙数量
+#     7         1       1       2
+# DWG推塔数量 推水晶数量 大龙数量 小龙数量
+#     6         0       0       2
+pre2 = [[2, 2, 1, 1, 1, 2, 7, 1, 1, 2, 6, 0, 0, 2]]
+c = best_clf.predict_proba(pre2).reshape(-1, 1)
+print("-----------The Second of SN VS DWG ----------- \n")
+print("SN win probability is % ", list(c[0] * 100),
+      "\nDWG win probability is %:", list(c[1] * 100))
+#第三盘:
+#   一血      一塔     水晶    第一条大龙  第一条小龙  第一个峡谷先锋
+#  1(SN)    2(DWG)   2(DWG)    2(DWG)      1(SN)     2(DWG)
+# SN推塔数量 推水晶数量 大龙数量 小龙数量
+#     5         0       0       4
+# DWG推塔数量 推水晶数量 大龙数量 小龙数量
+#     8         1       1       2
+pre3 = [[1, 2, 2, 2, 1, 2, 5, 0, 0, 4, 8, 1, 1, 2]]
+c = best_clf.predict_proba(pre3).reshape(-1, 1)
+print("-----------The Third of SN VS DWG ----------- \n")
+print("SN win probability is % ", list(c[0] * 100),
+      "\nDWG win probability is %:", list(c[1] * 100))
+#第四盘:
+#   一血      一塔     水晶    第一条大龙  第一条小龙  第一个峡谷先锋
+#  1(SN)    1(SN)   1(SN)    2(DWG)      1(SN)     2(DWG)
+# SN推塔数量 推水晶数量 大龙数量 小龙数量
+#     10         2       0       3
+# DWG推塔数量 推水晶数量 大龙数量 小龙数量
+#      7        1       1       2
+pre4 = [[1, 1, 1, 2, 1, 2, 10, 2, 0, 3, 7, 1, 1, 2]]
+c = best_clf.predict_proba(pre4).reshape(-1, 1)
+print("-----------The Fourth of SN VS DWG ----------- \n")
+print("SN win probability is % ", list(c[0] * 100),
+      "\nDWG win probability is %:", list(c[1] * 100))
